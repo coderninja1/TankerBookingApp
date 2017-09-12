@@ -1,0 +1,14 @@
+<ion-view view-title="Edit Phone Number">
+        <ion-content class="padding">
+                <form name="myForm" ng-controller="usercontroller">
+                  <p class="text-center balanced" >Get Aunthentication code on Your Mobile Number</p>
+                
+                  <lable class="item item-input">                  
+                  <span class="input-label">Mobile Number</span>
+                  <input type="number" placeholder="" id="mobile" name="mobilenumber" ng-model="data.phone" required>
+                  </lable>            
+                    <a class="button button-block " style="background-color:#85C1E9"  href="#/tab/verificationpage" ng-click="verifycode(data)">Next</a>  
+                </form> 
+            </label>
+        </ion-content>
+</ion-view>

@@ -1,0 +1,186 @@
+<ion-view view-title="Driver Registration">
+        <ion-content >  
+          <form  name="myForm" class="list" ng-controller="drivercontroller" novalidate>
+            <div class="card" ng-hide="showme">
+              <div class="item item-divider">
+                 Driver Registration
+              </div>
+                <ion-list>
+                    <label class="item item-input">
+                        <span class="input-label">First Name</span>
+                        <input type="text" placeholder="" ng-model="data.firstname" required>
+                    </label>
+
+                    <label class="item item-input">
+                        <span class="input-label">Last Name</span>
+                        <input type="text" placeholder="" ng-model="data.lastname" required>
+                    </label>
+
+                    <label class="item item-input">
+                        <span class="input-label">Username</span>
+                        <input type="text" placeholder="" ng-change="checkuserdata(data);" ng-model="data.userid">
+                    </label>
+                    <label class="item item-input">
+                       <span class="input-label">Password</span>
+                       <input type="password" id="password" name="password" ng-model="data.password" 
+                       ng-minlength="5" ng-maxlength="8" required />    
+                    </label>
+                    
+                    <span class="assertive" text-align="center">
+                      <span ng-show="myForm.password.$error.required && myForm.password.$dirty">Required</span>
+                       <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must 5 to 8 characters long.</span>
+                    </span>
+
+                    <label class="item item-input">
+                        <span class="input-label">Confirm Password</span>
+                       <input type="password" id="password_c" name="password_c" ng-model="data.password_c" valid-password-c required  />
+                    </label>
+                    <span class="assertive">
+                      <span ng-show="myForm.password_c.$error.required && myForm.password_c.$dirty">Please confirm your password.</span>
+                      <span ng-show="!myForm.password_c.$error.required && myForm.password_c.$error.noMatch && myForm.password.$dirty">Passwords do not match.</span>
+                    </span>
+
+                    <label class="item item-input">
+                         <span class="input-label">Email ID</span>
+                         <input type="email" placeholder="" ng-model="data.emailid" >
+                    </label>
+
+                     <label class="item item-input">
+                        <span class="input-label">Phone</span>
+                   <!--      <span>+966</span> -->
+                        <input type="number" placeholder="" ng-change="checkuserdata(data);" ng-model="data.phone" required>
+                    </label>  
+
+                    <label class="item item-input">
+                      <span class="input-label">City</span>
+                      <input type="text" placeholder="" ng-model="data.city" required>
+                    </label>
+
+
+                  <label class="item item-input">
+                      <span class="input-label">Nwc station Number</span>
+                      <input type="number" placeholder="" ng-model="data.nwcstationnumber">
+                  </label>
+
+              
+                  <label class="item item-input">
+                      <span class="input-label">Nwc registration Number</span>
+                      <input type="number" placeholder="" ng-model="data.nwcregistrationnumber">
+                  </label>
+
+                    <label class="item item-input">
+                          Quantity Tanker  {{data.tankersize}} Tons      
+                         <div class="item range">
+                         5 <input type="range" id="size" name="minutes" min="5" max="32"  step="1"  ng-model="data.tankersize" value="{{data.tankersize}}">32
+                          </div>  
+                    </label>   
+
+                  <img id="driverprofile"/> 
+                  
+                  <label class="item item-input">
+
+                   <span class="input-label">Profile Photo</span>
+          
+                  <input ng-model="form.image" type="file" class="form-control input-lg" accept="image/*" onchange="angular.element(this).scope().uploadedFile1(this)">
+                  </label>  
+                 
+                  <img id="vehiclephoto"/> 
+
+                  <label class="item item-input">
+                    <span class="input-label">Vehicle Photo</span>
+                             <input ng-model="form.image" type="file" class="form-control input-lg" accept="image/*" onchange="angular.element(this).scope().uploadedFile2(this)">
+                  </label>  
+                        
+                 </ion-list>
+               </div>     
+                <div class="padding">
+                          <button type="submit"  class="button button-block " style="background-color:#85C1E9" 
+                            ng-hide="showme" ng-click="verifycode(data);showme=true" ng-disabled="!myForm.$valid">Signup
+                            </button>      
+                </div> 
+                       <div ng-show="showme" class="padding">
+                                  <div style="height:50px">
+                                  </div>
+
+                                  <h5 class="text-center balanced">We send Verfication code on Your Email Id
+                                  </h5>
+                                  <div class="list">
+                                        <label class="item item-input">
+                                            <span class="input-label">Enter Verifivcation Code</span>
+                                            <input type="number"  name="verficationcode" ng-model="data.verificationcode">
+                                        </label>
+                                  </div>           
+                                 <button type="submit" class="button button-block " style="background-color:#85C1E9" ng-show="showme" 
+                                 ng-click="verifyResponce(data)">Verify</button>
+                                    <div class="my-class">
+                                    <a href="" ng-click="verifycode(data)" id="resendsms">Resend SMS</a>
+                                    <a href="#/tab/editphone" style="margin-left:50px">Edit Phone Number<a/>
+                       </div> 
+                     </div>
+             </form>
+            </ion-content>
+          </ion-view>
+
+      <style type="text/css">
+
+        input[type=text] {
+        height:17px;
+        border: 0;
+        width: calc(100% - 2px);
+        margin-left:1px;
+      
+        -webkit-transition: box-shadow 0.3s;
+        transition: box-shadow 0.3s;
+      }
+      input[type=text]:focus {
+        outline: none;
+        box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+      }
+
+      input[type=password] {
+        height:17px;
+        border: 0;
+        width: calc(100% - 2px);
+        margin-left:1px;
+        -webkit-transition: box-shadow 0.3s;
+        transition: box-shadow 0.3s;
+      }
+      input[type=password]:focus {
+        outline: none;
+        box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+      }
+
+
+      input[type=number] {
+        height:17px;
+        border: 0;
+        width: calc(100% - 2px);
+        margin-left:1px;
+        -webkit-transition: box-shadow 0.3s;
+        transition: box-shadow 0.3s;
+      }
+      input[type=number]:focus {
+        outline: none;
+        box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+      }
+
+      input[type=email] {
+        height:17px;
+        border: 0;
+        width: calc(100% - 2px);
+        margin-left:1px;
+        -webkit-transition: box-shadow 0.3s;
+        transition: box-shadow 0.3s;
+      }
+      input[type=email]:focus {
+        outline: none;
+        box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+      }
+
+       ::-webkit-file-upload-button {
+          background: lightblue
+          color: gray;
+          padding: 1em;
+        }
+
+      </style>

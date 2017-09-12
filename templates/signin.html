@@ -1,0 +1,55 @@
+<ion-view view-title="User Signin">
+        <ion-content class="padding">
+  <!--        <md-progress-linear md-mode="indeterminate" ng-hide="false"></md-progress-linear> -->
+          <form class="list" name="usersignin" ng-controller="signinuser">
+              <div class="card">
+                     <div class="list" id="signin">
+                               <label class="item item-input">
+                                  <span class="input-label">Username/Email</span>
+                                  <input type="text" ng-model="data.username" required>
+                                </label>
+                                <label class="item item-input">
+                                  <span class="input-label">Password</span>
+                                  <input type="password" ng-model="data.password" required>
+                                </label>  
+                                &nbsp;
+                                 <button class="button button-block " style="background-color:#85C1E9" ng-click="login(data);">Login</button>
+                 
+                      </div>    
+               </div>  
+                        <a href="#/tab/forgotpassword" class="col text-center col-offset-33">Forgot Password ?</a>
+                        <a href="#/tab/register" class="col text-center col-offset-33">Create Account</a>      
+          </form>
+      </ion-content>
+</ion-view>
+<style type="text/css">
+
+  input[type=text] {
+  height:17px;
+  border: 0;
+  width: calc(100% - 2px);
+  margin-left:1px;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+
+input[type=text]:focus {
+  outline: none;
+  box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+}
+
+input[type=password] {
+  height:17px;
+  border: 0;
+  width: calc(100% - 2px);
+  margin-left:1px;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+input[type=password]:focus {
+  outline: none;
+  box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+}
+
+
+</style>

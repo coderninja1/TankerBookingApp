@@ -1,0 +1,178 @@
+<ion-view view-title="Update Profile">
+        <ion-content > 
+          <a class="item item-icon-left" href="#/tab/menu">
+            <i class="icon ion-arrow-left-c danger"></i>
+            Back
+            </a> 
+          <form  name="myForm" class="list" ng-controller="updatedriver" novalidate>
+            <div class="card">
+              <div class="item item-divider">
+                Update Profile
+              </div>
+                <ion-list>
+                    <label class="item item-input">
+                        <span class="input-label">First Name</span>
+                        <input type="text" id="firstname" placeholder="" ng-model="data.firstname" required>
+                    </label>
+
+                    <label class="item item-input">
+                        <span class="input-label">Last Name</span>
+                        <input type="text" placeholder="" id="lastname" ng-model="data.lastname" required>
+                    </label>
+
+                    <label class="item item-input">
+                        <span class="input-label">Username</span>
+                        <input type="text" placeholder="" id="username" ng-model="data.userid">
+                    </label>
+                    <label class="item item-input">
+                       <span class="input-label">Password</span>
+                       <input type="password" id="password" name="password" ng-model="data.password" ng-minlength="5" ng-maxlength="8" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required  />    
+                    </label>
+                    
+                    <span class="assertive" text-align="center">
+                      <span ng-show="myForm.password.$error.required && myForm.password.$dirty">Required</span>
+                       <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must 5 to 8 characters long.</span>
+                    </span>
+
+                    <label class="item item-input">
+                        <span class="input-label">Confirm Password</span>
+                       <input type="password" id="password_c" name="password_c" 
+                       ng-model="data.password_c" valid-password-c required  />
+                    </label>
+                    <span class="assertive">
+                      <span ng-show="myForm.password_c.$error.required && myForm.password_c.$dirty">Please confirm your password.</span>
+                      <span ng-show="!myForm.password_c.$error.required && myForm.password_c.$error.noMatch && myForm.password.$dirty">Passwords do not match.</span>
+                    </span>
+
+                    <label class="item item-input">
+                         <span class="input-label">Email ID</span>
+                         <input type="email" id="email" placeholder="" ng-model="data.emailid" >
+                    </label>
+
+                     <label class="item item-input">
+                        <span class="input-label">Phone</span>
+                      <!--   <span>+966</span> -->
+                        <input type="number" id="phone" placeholder="" ng-model="data.phone" required>
+                    </label>  
+
+                    <label class="item item-input">
+                      <span class="input-label">City</span>
+                      <input type="text" placeholder="" id="city" ng-model="data.city" required>
+                    </label>
+
+
+                  <label class="item item-input">
+                      <span class="input-label">Nwc station Number</span>
+                      <input type="number" id="nwcstationnumber" placeholder="" ng-model="data.nwcstationnumber">
+                  </label>
+
+              
+                  <label class="item item-input">
+                      <span class="input-label">Nwc registration Number</span>
+                      <input type="number" id="nwcregistrationnumber" placeholder="" ng-model="data.nwcregistrationnumber">
+                  </label>
+   
+                      <input type="hidden" id="imageone" name="imageone" ng-model="hidden.imageone">
+          
+                      <input type="hidden" id="imagetwo" name="imagetwo" ng-model="hidden.imagetwo">
+          
+                      <label class="item item-input">
+                        <span class="input-label">Tanker Size in Tons</span>
+                          <input type="text" id="tanksize" readonly> 
+                      </label>
+
+                   <label class="item item-input">
+                   <span class="input-label">Profile Photo</span>
+                   <input ng-model="form.image" type="file" class="form-control input-lg" accept="image/*" onchange="angular.element(this).scope().uploadedFile1(this)">
+                   </label> 
+
+                  <img id="changedriverimage"/> 
+
+                  <label class="item item-input">
+                   <img id="profileimage" style="width:150px;">
+                  </label>
+
+                  <label class="item item-input">
+
+                    <span class="input-label">Vehicle Photo</span>
+                             <input ng-model="form.image" type="file" class="form-control input-lg" accept="image/*" onchange="angular.element(this).scope().uploadedFile2(this)">
+                  </label>
+
+                  <img id="changevehicleimage"/>
+
+                  <label class="item item-input">
+                   <img id="vehicleimage" style="width:150px;">
+                  </label>
+
+                  <button type="submit" class="button button-block button-positive"
+                    ng-click="update(data)">Submit</button>      
+
+                 </ion-list>
+               </div>       
+         </form>
+        </ion-content>
+      </ion-view>
+
+      <style type="text/css">
+
+        input[type=text] {
+        height:17px;
+        border: 0;
+        width: calc(100% - 2px);
+        margin-left:1px;
+      
+        -webkit-transition: box-shadow 0.3s;
+        transition: box-shadow 0.3s;
+      }
+      input[type=text]:focus {
+        outline: none;
+        box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+      }
+
+      input[type=password] {
+        height:17px;
+        border: 0;
+        width: calc(100% - 2px);
+        margin-left:1px;
+        -webkit-transition: box-shadow 0.3s;
+        transition: box-shadow 0.3s;
+      }
+      input[type=password]:focus {
+        outline: none;
+        box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+      }
+
+
+      input[type=number] {
+        height:17px;
+        border: 0;
+        width: calc(100% - 2px);
+        margin-left:1px;
+        -webkit-transition: box-shadow 0.3s;
+        transition: box-shadow 0.3s;
+      }
+      input[type=number]:focus {
+        outline: none;
+        box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+      }
+
+      input[type=email] {
+        height:17px;
+        border: 0;
+        width: calc(100% - 2px);
+        margin-left:1px;
+        -webkit-transition: box-shadow 0.3s;
+        transition: box-shadow 0.3s;
+      }
+      input[type=email]:focus {
+        outline: none;
+        box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+      }
+
+      ::-webkit-file-upload-button {
+          background: lightblue
+          color: gray;
+          padding: 1em;
+        }
+
+      </style>

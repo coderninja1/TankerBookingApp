@@ -1,0 +1,15 @@
+<div ng-controller="usercontroller">
+      <ion-view title="Verfication Page">
+        <ion-content class="padding">     
+            <p class="text-center balanced">Verification code is send on Mobile number</p>    
+
+            <lable class="item item-input">                  
+                  <span class="input-label">Verification code</span>
+                  <input type="number" placeholder=" Enter verification Code" 
+                   ng-model="data.verificationcode">
+            </lable>  
+            <button ng-click="verifyResponce(data)" class="button button-block " style="background-color:#85C1E9" >Verify
+            </button>           
+        </ion-content>
+      </ion-view>
+</div>

@@ -1,0 +1,73 @@
+<ion-view title="Welcome" ng-controller="profilemenudriver"> 
+             <ion-side-menus>
+                <ion-side-menu-content>
+                  <ion-nav-bar class="bar-calm">
+             
+                    <ion-nav-buttons side="left">
+                      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                      </button>
+                    </ion-nav-buttons>
+<!-- 
+                     <ion-nav-buttons side="right">
+                      <button class="button button
+                      -icon button-clear ion-navicon" menu-toggle="right">
+                      </button>
+                    </ion-nav-buttons> -->
+
+                  </ion-nav-bar>
+                   
+                 <ion-nav-view name="menuContent">            
+                    <iframe frameborder="0" ng-src="{{drivermap}}" id="drivermap"></iframe>
+                 </ion-nav-view>
+
+                 </ion-side-menu-content> 
+
+                <ion-side-menu side="left">
+                  <ion-header-bar class="bar-dark">
+                    <h1 class="title">Profile</h1>
+                  </ion-header-bar>
+                  <ion-content style="color:#3F422F;">
+                    <ul class="list">
+                      <a class="item item-icon-left" href="#/tab/driverprofile"  menu-close>
+                        <i class="icon ion-android-contact"></i>
+                          Profile
+                      </a>
+                      <a class="item item-icon-left" href="#/tab/bookinghistory"  menu-close>
+                        <i class="icon ion-ios-location-outline"></i>
+                         Booking History
+                      </a>
+                      <a class="item item-icon-left" href="#/tab/about"  menu-close>
+                        <i class="icon ion-information-circled"></i>
+                       About
+                      </a>
+                      <a class="item item-icon-left" ng-click="logout()" menu-close>
+                        <i class="icon ion-log-out"></i>
+                        Logout
+                      </a>
+                    </ul>
+                  </ion-content>
+                </ion-side-menu>
+
+                <!--Right Menus-->
+
+                 <!-- <ion-side-menu side="right">
+                      <ion-header-bar class="bar-assertive">
+                          <h1 class="title">Right Menu</h1>
+                      </ion-header-bar>
+                      <ion-content>
+
+                      <ul class="list">
+                   
+
+                      <a class="item item-icon-left" href=""  menu-close>
+                        <i class="icon ion-ios-location"></i>
+                         Fare Estimate
+                      </a>
+                    </ul>
+
+                    </ion-content>
+                </ion-side-menu> -->
+                
+              </ion-side-menus>  
+
+      </ion-view>

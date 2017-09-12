@@ -1,0 +1,21 @@
+ <ion-view title="Advanced Booking"  ng-controller="advancedbooking">  
+        <ion-content>         
+              <a class="item item-icon-left" href="#/tab/menucustomer">
+              <i class="icon ion-arrow-left-c danger"></i>
+              Back
+              </a> 
+                  <div class="item item-text-wrap">
+                        <div class="row header" Style="background-color:#E5E7E9;color:#C68A7D;">
+                          <div class="col">Booking Date</div>
+                          <div class="col">Booking Time</div>
+                          <div class="col">Booking Status</div>  
+
+                        </div>
+                        <div class="row" ng-repeat="x in names">
+                          <div class="col">{{x.bookingdate}}</div> 
+                          <div class="col">{{x.bookingtime}}</div>
+                          <div class="col">{{x.status}}</div>
+                        </div>                
+                  </div>  
+         </ion-content>      
+</ion-view>

@@ -1,0 +1,24 @@
+<ion-view title="Booking History" ng-controller="bookinghistory">  
+      <ion-header-bar class="bar-stable">
+      </ion-header-bar>
+      <ion-content>
+            <a class="item item-icon-left" href="#/tab/menucustomer">
+              <i class="icon ion-arrow-left-c danger"></i>
+              Back
+            </a>
+              <div class="item item-text-wrap">
+                    <div class="row header" Style="background-color:#E5E7E9;color:#566573;">
+                      <div class="col">Driver</div>
+                      <div class="col">Fare</div>
+                      <div class="col">Booking on</div>  
+                      <div class="col">Phone</div>  
+                    </div>
+                    <div class="row" ng-repeat="x in names">
+                      <div class="col">{{x.drivername}}</div> 
+                      <div class="col">{{x.fare}} SR</div>
+                      <div class="col">{{x.booktime}}</div>
+                      <div class="col">{{x.driverphone}}</div>      
+                    </div>                
+              </div>
+      </ion-content>   
+      </ion-view>
