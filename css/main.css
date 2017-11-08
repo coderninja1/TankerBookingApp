@@ -1,0 +1,15 @@
+.md-flex{
+	text-align: center;
+}
+
+.vertical-divider {
+  border-top-width: 0;
+  border-right-width: 1px;
+  border-right-style: solid;
+  height: 9%;
+  outline-color: red;
+  padding-left: 50px;
+}
+.md-title{
+padding-left: 10px;
+}
